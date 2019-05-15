@@ -1,42 +1,40 @@
 <template>
-  <div>
     <nav>
-      <h2>Agregar provedor</h2>
-      <input v-model="book.title" placeholder="edit me">
-      <p>Titulo del libro: {{ title }}</p>
-      <input v-model="book.author" placeholder="edit me">
-      <p>Nombre del autor: {{ author }}</p>
-      <input v-model="book.editorial" placeholder="edit me">
-      <p>Nombre de la editorial: {{ editorial }}</p>
-      <input v-model="book.subject" placeholder="edit me">
-      <p>Nombre de la materia: {{ subject }}</p>
-      <input v-model="book.price" placeholder="edit me">
-      <p>Precio del libro: {{ price }}</p>
-      <button class="btn btn-dark" @click.prevent="hacerPost">Agregar</button>
+    <form @submit.prevent="consumirAPI">
+      <div class="form-group">
+        <label>¿Qué estas bucando?</label>
+        <div class="input-group">
+          <input v-model="name" class="form-control">
+          <button class="btn btn-dark" @click="consumirAPI">OK</button>
+        </div>
+      </div>
+    </form>
 
-      <!--- Metodo update--->
-      <h2>Actualizar Libro</h2>
-      <input v-model="book.id" placeholder="edit me">
-      <p>ID del libro: {{ id }}</p>
-      <input v-model="book.title" placeholder="edit me">
-      <p>Titulo del libro: {{ title }}</p>
-      <input v-model="book.author" placeholder="edit me">
-      <p>Nombre del autor: {{ author }}</p>
-      <input v-model="book.editorial" placeholder="edit me">
-      <p>Nombre de la editorial: {{ editorial }}</p>
-      <input v-model="book.subject" placeholder="edit me">
-      <p>Nombre de la materia: {{ subject }}</p>
-      <input v-model="book.price" placeholder="edit me">
-      <p>Precio del libro: {{ price }}</p>
-      <button class="btn btn-dark" @click.prevent="hacerPut">Actualizar</button>
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Direccion</th>
+          <th>Telefono</th>
+          <th>Sitio web</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="provider in  providers" :key="provider.name">
+          <td>{{ provider.id }}</td>
+          <td>{{ provider.name }}</td>
+          <td>{{ provider.address }}</td>
+          <td>{{ provider.tel }}</td>
+          <td>{{ provider.website }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <router-link tag="a" to="/provideredit" class="scroll-suave">Agregar, actualizar y eliminar provedor</router-link>
+</nav>
+  
 
-      <!--Eliminar libro-->
-      <h2>Eliminar libro</h2>
-      <input v-model="book.id" placeholder="edit me">
-      <p>ID del libro: {{ id }}</p>
-      <button class="btn btn-dark" @click.prevent="hacerDelete">eliminar</button>
-    </nav>
-  </div>
+     
 </template>
 
 <script>
@@ -45,53 +43,25 @@ export default {
   name: "app",
   data() {
     return {
-      book: {
-        id: null,
-        title: null,
-        auhor: null,
-        editorial: null,
-        subject: null,
-        price: null
-      },
-      url: "http://localhost:3000/books"
+      name : '',
+      providers : [],
+      url: "http://localhost:3000/providers/"
     };
   },
+  created() {
+  this.consumirAPI();
+  },
   methods: {
-    hacerPost() {
-      console.log(this.book);
-      axios
-        .post(this.url, this.book)
-        .then(function(response) {
-          console.log(response);
-          alert("Libro añadido");
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
-    },
-    hacerPut() {
-      console.log(this.book);
-      axios
-        .put(this.url + "/" + this.book.id, this.book)
-        .then(function(response) {
-          console.log(response);
-          alert("Libro actualizado");
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
-    },
-    hacerDelete() {
-      console.log(this.book);
-      axios.delete(this.url + "/" + this.book.id, this.book)
-        .then(function(response) {
-          console.log(response);
-          alert("Libro eliminado");
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
+    consumirAPI () {
+      axios.get(this.url + this.name).then(response => {
+        console.log("passs")
+        this.providers = response.data;
+        console.log("yes");
+      }).catch(error => {
+        console.log(error)
+      });
     }
+    
   }
 };
 </script>
