@@ -5,7 +5,7 @@
     <nav class="menu-principal">
         <router-link tag="a" to="/home" class="scroll-suave">Inicio</router-link>
         <router-link tag="a"  to="/book" class="scroll-suave">Libros</router-link>
-        <a href="#chef" class="scroll-suave">Provedores</a>
+        <router-link tag="a" to="/provider" class="scroll-suave">Provedores</router-link>
         <a href="#nuestro_menu" class="scroll-suave">Clientes</a>
         <a href="#contacto" class="scroll-suave">Contacto</a>
     </nav>
@@ -20,6 +20,8 @@
 <script>
 
 </script>
+<style>
+</style>
 
 
 

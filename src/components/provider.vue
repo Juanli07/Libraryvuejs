@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav>
-      <h2>Agregar Libro</h2>
+      <h2>Agregar provedor</h2>
       <input v-model="book.title" placeholder="edit me">
       <p>Titulo del libro: {{ title }}</p>
       <input v-model="book.author" placeholder="edit me">

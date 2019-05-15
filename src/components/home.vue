@@ -13,6 +13,7 @@
     <table class="table table-striped">
       <thead class="thead-dark">
         <tr>
+          <th>ID</th>
           <th>Titulo</th>
           <th>Autor</th>
           <th>Editorial</th>
@@ -22,11 +23,12 @@
       </thead>
       <tbody>
         <tr v-for="book in  books" :key="book.title">
+          <td>{{book.id}}</td>
           <td>{{ book.title }}</td>
           <td>{{ book.author }}</td>
           <td>{{book.editorial}}</td>
           <td>{{book.subject}}</td>
-          <td>{{book.price}}</td>
+          <td>${{book.price}}</td>
         </tr>
       </tbody>
     </table>
@@ -60,3 +62,11 @@ methods: {
 }
 };
 </script>
+<style>
+table{
+  border :blue;
+}
+th{
+  border : 5px blue;
+}
+</style>
