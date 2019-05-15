@@ -6,7 +6,7 @@
         <router-link tag="a" to="/home" class="scroll-suave">Inicio</router-link>
         <router-link tag="a"  to="/book" class="scroll-suave">Libros</router-link>
         <router-link tag="a" to="/provider" class="scroll-suave">Provedores</router-link>
-        <a href="#nuestro_menu" class="scroll-suave">Clientes</a>
+        <router-link tag="a" to="/clients" class="scroll-suave">Clientes</router-link>
         <a href="#contacto" class="scroll-suave">Contacto</a>
     </nav>
     

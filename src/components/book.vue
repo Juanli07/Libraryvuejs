@@ -2,38 +2,37 @@
   <div>
     <nav>
       <h2>Agregar Libro</h2>
-      <input v-model="book.title" placeholder="edit me">
-      <p>Titulo del libro: {{ title }}</p>
-      <input v-model="book.author" placeholder="edit me">
-      <p>Nombre del autor: {{ author }}</p>
-      <input v-model="book.editorial" placeholder="edit me">
-      <p>Nombre de la editorial: {{ editorial }}</p>
-      <input v-model="book.subject" placeholder="edit me">
+      <input v-model="book.title" placeholder="Titulo" value="Titulo">
+      <p>Titulo del libro: </p>
+      <input v-model="book.author" placeholder="Autor" value="Autor">
+      <p>Nombre del autor:</p>
+      <input v-model="book.editorial" placeholder="Editorial" value="Editorial">
+      <p>Nombre de la editorial: </p>
+      <input v-model="book.subject" placeholder="Materia" value="Materia">
       <p>Nombre de la materia: {{ subject }}</p>
-      <input v-model="book.price" placeholder="edit me">
-      <p>Precio del libro: {{ price }}</p>
+      <input v-model="book.price" placeholder="Precio" value="8">
+      <p>Precio del libro: </p>
       <button class="btn btn-dark" @click.prevent="hacerPost">Agregar</button>
 
       <!--- Metodo update--->
       <h2>Actualizar Libro</h2>
-      <input v-model="book.id" placeholder="edit me">
-      <p>ID del libro: {{ id }}</p>
-      <input v-model="book.title" placeholder="edit me">
-      <p>Titulo del libro: {{ title }}</p>
-      <input v-model="book.author" placeholder="edit me">
-      <p>Nombre del autor: {{ author }}</p>
-      <input v-model="book.editorial" placeholder="edit me">
-      <p>Nombre de la editorial: {{ editorial }}</p>
-      <input v-model="book.subject" placeholder="edit me">
-      <p>Nombre de la materia: {{ subject }}</p>
-      <input v-model="book.price" placeholder="edit me">
-      <p>Precio del libro: {{ price }}</p>
+      <input v-model="book.id" placeholder="ID">
+      <p>ID del libro:</p>
+      <input v-model="book.title" placeholder="Titulo nuevo">
+      <p>Titulo del libro:</p>
+      <input v-model="book.author" placeholder="autor nuevo">
+      <p>Nombre del autor:</p>
+      <input v-model="book.editorial" placeholder="Editorial nuevo">
+      <p>Nombre de la editorial: </p>
+      <input v-model="book.subject" placeholder="Materia nueva">
+      <p>Nombre de la materia: </p>
+      <input v-model="book.price" placeholder="Precio nuevo">
+      <p>Precio del libro: </p>
       <button class="btn btn-dark" @click.prevent="hacerPut">Actualizar</button>
-
       <!--Eliminar libro-->
       <h2>Eliminar libro</h2>
-      <input v-model="book.id" placeholder="edit me">
-      <p>ID del libro: {{ id }}</p>
+      <input v-model="book.id" placeholder="ID a eliminar">
+      <p>ID del libro: </p>
       <button class="btn btn-dark" @click.prevent="hacerDelete">eliminar</button>
     </nav>
   </div>
@@ -47,11 +46,11 @@ export default {
     return {
       book: {
         id: null,
-        title: null,
-        auhor: null,
-        editorial: null,
-        subject: null,
-        price: null
+        title: '',
+        author: '',
+        editorial: '',
+        subject: '',
+        price: ''
       },
       url: "http://localhost:3000/books"
     };
@@ -61,11 +60,13 @@ export default {
       console.log(this.book);
       axios
         .post(this.url, this.book)
-        .then(function(response) {
-          console.log(response);
-          alert("Libro añadido");
+        .then((response) => { //usea arrow functions (funciones flecha)
+        console.log(response);
+        alert("Libro agregado, a continuacion registre al provedor")
+        this.$router.push('/addprovider');
+          console.log(this.$router)
         })
-        .catch(function(error) {
+        .catch((error) => { //
           console.log(error);
         });
     },

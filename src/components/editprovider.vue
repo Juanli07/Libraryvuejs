@@ -1,38 +1,26 @@
 <template>
   <div>
     <nav>
-      <h2>Agregar Proveedor</h2>
-      <input v-model="provider.id_book" placeholder="edit me">
-      <p>Id del libro adquirido: {{ id_book }}</p>
-      <input v-model="provider.name" placeholder="edit me">
-      <p>Nombre del provedor: {{ name }}</p>
-      <input v-model="provider.address" placeholder="edit me">
-      <p>Direccion del provedor: {{ address }}</p>
-      <input v-model="provider.tel" placeholder="edit me">
-      <p>Telefono del provedor: {{ tel }}</p>
-      <input v-model="provider.website" placeholder="edit me">
-      <p>Sitio web: {{ website }}</p>
-      <button class="btn btn-dark" @click.prevent="hacerPost">Agregar</button>
 
       <!--- Metodo update--->
       <h2>Actualizar provedor</h2>
-      <input v-model="provider.id" placeholder="edit me">
+      <input v-model="provider.id" placeholder="ID muevo">
       <p>ID del provedor: {{ id }}</p>
-    <input v-model="provider.id_book" placeholder="edit me">
+    <input v-model="provider.id_book" placeholder="ID del libro">
       <p>Id del libro adquirido: {{ id_book }}</p>
-      <input v-model="provider.name" placeholder="edit me">
+      <input v-model="provider.name" placeholder="Nombre del provedor">
       <p>Nombre del provedor: {{ name }}</p>
-      <input v-model="provider.address" placeholder="edit me">
+      <input v-model="provider.address" placeholder="Direccion">
       <p>Direccion del provedor: {{ address }}</p>
-      <input v-model="provider.tel" placeholder="edit me">
+      <input v-model="provider.tel" placeholder="Telefono">
       <p>Telefono del provedor: {{ tel }}</p>
-      <input v-model="provider.website" placeholder="edit me">
+      <input v-model="provider.website" placeholder="Sitio web">
       <p>Sitio web: {{ website }}</p>
       <button class="btn btn-dark" @click.prevent="hacerPut">Actualizar</button>
 
       <!--Eliminar libro-->
       <h2>Eliminar provedor</h2>
-      <input v-model="provider.id" placeholder="edit me">
+      <input v-model="provider.id" placeholder="ID a eliminar">
       <p>ID del provedor: {{ id }}</p>
       <button class="btn btn-dark" @click.prevent="hacerDelete">eliminar</button>
     </nav>
@@ -73,9 +61,10 @@ export default {
       console.log(this.provider);
       axios
         .put(this.url + "/" + this.provider.id, this.provider)
-        .then(function(response) {
+        .then((response) => {
           console.log(response);
           alert("Provedor actualizado");
+          this.$router.push('/provider')
         })
         .catch(function(error) {
           console.log(error);
