@@ -39,7 +39,7 @@ export default {
         .post(this.url, this.provider)
         .then((response) => {
           console.log(response);
-          alert("Provedor añadido");
+          alert("Provedor a単adido");
           this.$router.push('/provider')
         })
         .catch(function(error) {

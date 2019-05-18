@@ -1,39 +1,39 @@
 <template>
   <div>
     <nav>
-      <h2>Agregar Libro</h2>
+      <h3><b>AGREGAR LIBRO</b></h3>
       <input v-model="book.title" placeholder="Titulo" value="Titulo">
-      <p>Titulo del libro: </p>
+      <p><b>* </b> Titulo del libro: </p>
       <input v-model="book.author" placeholder="Autor" value="Autor">
-      <p>Nombre del autor:</p>
+      <p><b>* </b>Nombre del autor:</p>
       <input v-model="book.editorial" placeholder="Editorial" value="Editorial">
-      <p>Nombre de la editorial: </p>
+      <p><b>* </b>Nombre de la editorial: </p>
       <input v-model="book.subject" placeholder="Materia" value="Materia">
-      <p>Nombre de la materia: {{ subject }}</p>
+      <p><b>* </b>Nombre de la materia: {{ subject }}</p>
       <input v-model="book.price" placeholder="Precio" value="8">
-      <p>Precio del libro: </p>
-      <button class="btn btn-dark" @click.prevent="hacerPost">Agregar</button>
+      <p><b>* </b>Precio del libro: </p>
+      <button class="btn" @click.prevent="hacerPost"><b>Agregar</b></button>
 
       <!--- Metodo update--->
-      <h2>Actualizar Libro</h2>
+       <p><h3><b>ACTUALIZAR LIBRO</b></h3>
       <input v-model="book.id" placeholder="ID">
-      <p>ID del libro:</p>
+      <p><b>* </b>ID del libro:</p>
       <input v-model="book.title" placeholder="Titulo nuevo">
-      <p>Titulo del libro:</p>
-      <input v-model="book.author" placeholder="autor nuevo">
-      <p>Nombre del autor:</p>
-      <input v-model="book.editorial" placeholder="Editorial nuevo">
-      <p>Nombre de la editorial: </p>
-      <input v-model="book.subject" placeholder="Materia nueva">
-      <p>Nombre de la materia: </p>
-      <input v-model="book.price" placeholder="Precio nuevo">
-      <p>Precio del libro: </p>
-      <button class="btn btn-dark" @click.prevent="hacerPut">Actualizar</button>
+      <p><b>* </b>Titulo del libro:</p>
+      <input v-model="book.author" placeholder="Autor Nuevo">
+      <p><b>* </b>Nombre del autor:</p>
+      <input v-model="book.editorial" placeholder="Editorial Nuevo">
+      <p><b>* </b>Nombre de la editorial: </p>
+      <input v-model="book.subject" placeholder="Materia Nueva">
+      <p><b>* </b>Nombre de la materia: </p>
+      <input v-model="book.price" placeholder="Precio Nuevo">
+      <p><b>* </b>Precio del libro: </p>
+      <button class="btn" @click.prevent="hacerPut"><b>Actualizar</b></button>
       <!--Eliminar libro-->
-      <h2>Eliminar libro</h2>
-      <input v-model="book.id" placeholder="ID a eliminar">
-      <p>ID del libro: </p>
-      <button class="btn btn-dark" @click.prevent="hacerDelete">eliminar</button>
+      <p><h3><b>ELIMINAR LIBRO</b></h3>
+      <input v-model="book.id" placeholder="ID a Eliminar">
+      <p><b>* </b>ID del libro: </p>
+      <button class="btn" @click.prevent="hacerDelete"><b>Eliminar</b></button>
     </nav>
   </div>
 </template>
@@ -76,7 +76,7 @@ export default {
         .put(this.url + "/" + this.book.id, this.book)
         .then(function(response) {
           console.log(response);
-          alert("Libro actualizado");
+          alert("Libro Actualizado");
         })
         .catch(function(error) {
           console.log(error);
@@ -87,7 +87,7 @@ export default {
       axios.delete(this.url + "/" + this.book.id, this.book)
         .then(function(response) {
           console.log(response);
-          alert("Libro eliminado");
+          alert("Libro Eliminado");
         })
         .catch(function(error) {
           console.log(error);
@@ -98,11 +98,27 @@ export default {
 </script>
   
 <style scoped>
-h2 {
-  color: #f44336;
+nav{
+  background-color: #f1d4db
+}
+h3 {
+  color: rgb(83, 5, 77);
   font-size: 40 px;
+  font-style: oblique;
 }
 div {
   align-items: center;
+}
+p{
+  color: crimson;
+}
+button{
+background-color: #ad005f;
+border:2px solid #a35781;
+color:rgb(255, 255, 255);
+}
+input{
+   text-align: center;
+
 }
 </style>

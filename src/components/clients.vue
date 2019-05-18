@@ -2,16 +2,16 @@
     <nav>
     <form @submit.prevent="consumirAPI">
       <div class="form-group">
-        <label>¿Qué estas bucando?</label>
+        <label><b>多QUE ESTA BUSCANDO?</b></label>
         <div class="input-group">
           <input v-model="name" class="form-control">
-          <button class="btn btn-dark" @click="consumirAPI">OK</button>
+          <button  @click="consumirAPI"><b><i>OK</i></b></button>
         </div>
       </div>
     </form>
 
     <table class="table table-striped">
-      <thead class="thead-dark">
+      <thead >
         <tr>
           <th>ID</th>
           <th>Nombre</th>
@@ -31,7 +31,7 @@
         </tr>
       </tbody>
     </table>
-    <router-link tag="a" to="/addclients" class="scroll-suave">Agregar, actualizar y eliminar clientes</router-link>
+    <router-link tag="a" to="/addclients" class="scroll-suave">Agregar -- Actualizar -- Eliminar Clientes</router-link>
 </nav>
      
 </template>
@@ -72,5 +72,22 @@ h2 {
 }
 div {
   align-items: center;
+}
+nav{
+  background-color: rgb(41, 58, 0)
+}
+a{
+color:honeydew;
+}
+label{
+  color:rgb(255, 255, 255)
+}
+button{
+  background-color: rgb(48, 255, 7);
+  border:2px solid #000000;
+}
+table{
+  background-color: #0ea300;
+  color: aliceblue;
 }
 </style>

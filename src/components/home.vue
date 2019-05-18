@@ -2,23 +2,22 @@
     <nav>
     <form @submit.prevent="consumirAPI">
       <div class="form-group">
-        <label>¿Qué estas bucando?</label>
+        <label><b>多QUE ESTAS BUSCANDO?</b></label>
         <div class="input-group">
           <input v-model="title" class="form-control">
-          <button class="btn btn-dark" @click="consumirAPI">OK</button>
+          <button @click="consumirAPI"><b><i>OK</i></b></button>
         </div>
       </div>
     </form>
-
     <table class="table table-striped">
-      <thead class="thead-dark">
+      <thead >
         <tr>
-          <th>ID</th>
-          <th>Titulo</th>
-          <th>Autor</th>
-          <th>Editorial</th>
-          <th>Materia</th>
-          <th>Precio</th>
+          <th><i>ID</i></th>
+          <th><i>Titulo</i></th>
+          <th><i>Autor</i></th>
+          <th><i>Editorial</i></th>
+          <th><i>Materia</i></th>
+          <th><i>Precio</i></th>
         </tr>
       </thead>
       <tbody>
@@ -64,9 +63,20 @@ methods: {
 </script>
 <style>
 table{
-  border :blue;
+  border :rgb(0, 113, 165);
 }
 th{
-  border : 5px blue;
+  border : 5px rgb(196, 255, 240);
+}
+thead{
+background-color: rgb(0, 156, 39);
+color: white;
+}
+button{
+  background-color: rgb(31, 48, 3);
+  color:yellowgreen;
+}
+label{
+  color: rgb(131, 118, 4)
 }
 </style>

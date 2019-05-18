@@ -3,26 +3,26 @@
     <nav>
 
       <!--- Metodo update--->
-      <h2>Actualizar provedor</h2>
+      <h3><b>ACTUALIZAR PROVEDOR</b></h3>
       <input v-model="provider.id" placeholder="ID muevo">
-      <p>ID del provedor: {{ id }}</p>
-    <input v-model="provider.id_book" placeholder="ID del libro">
-      <p>Id del libro adquirido: {{ id_book }}</p>
+      <p><b>* </b>ID del provedor: {{ id }}</p>
+    <input  v-model="provider.id_book" placeholder="ID del libro">
+      <p><b>* </b>Id del libro adquirido: {{ id_book }}</p>
       <input v-model="provider.name" placeholder="Nombre del provedor">
-      <p>Nombre del provedor: {{ name }}</p>
+      <p><b>* </b>Nombre del provedor: {{ name }}</p>
       <input v-model="provider.address" placeholder="Direccion">
-      <p>Direccion del provedor: {{ address }}</p>
+      <p><b>* </b>Direccion del provedor: {{ address }}</p>
       <input v-model="provider.tel" placeholder="Telefono">
-      <p>Telefono del provedor: {{ tel }}</p>
+      <p><b>* </b>Telefono del provedor: {{ tel }}</p>
       <input v-model="provider.website" placeholder="Sitio web">
-      <p>Sitio web: {{ website }}</p>
-      <button class="btn btn-dark" @click.prevent="hacerPut">Actualizar</button>
+      <p><b>* </b>Sitio web: {{ website }}</p>
+      <button @click.prevent="hacerPut"><b>Actualizar</b></button>
 
       <!--Eliminar libro-->
-      <h2>Eliminar provedor</h2>
+      <p><h3><b>ELIMINAR PROVEDOR</b></h3>
       <input v-model="provider.id" placeholder="ID a eliminar">
-      <p>ID del provedor: {{ id }}</p>
-      <button class="btn btn-dark" @click.prevent="hacerDelete">eliminar</button>
+      <p><b>* </b>ID del provedor: {{ id }}</p>
+      <button  @click.prevent="hacerDelete"><b>Eliminar</b></button>
     </nav>
   </div>
 </template>
@@ -51,7 +51,7 @@ export default {
         .post(this.url, this.provider)
         .then(function(response) {
           console.log(response);
-          alert("Provedor añadido");
+          alert("Provedor A単adido");
         })
         .catch(function(error) {
           console.log(error);
@@ -63,7 +63,7 @@ export default {
         .put(this.url + "/" + this.provider.id, this.provider)
         .then((response) => {
           console.log(response);
-          alert("Provedor actualizado");
+          alert("Provedor Actualizado");
           this.$router.push('/provider')
         })
         .catch(function(error) {
@@ -75,7 +75,7 @@ export default {
       axios.delete(this.url + "/" + this.provider.id, this.provider)
         .then(function(response) {
           console.log(response);
-          alert("Provedor eliminado");
+          alert("Provedor Eliminado");
         })
         .catch(function(error) {
           console.log(error);
@@ -86,11 +86,25 @@ export default {
 </script>
   
 <style scoped>
-h2 {
-  color: #f44336;
+h3 {
+  color: #421a68;
   font-size: 40 px;
 }
 div {
   align-items: center;
+}
+nav{
+  background-color: rgb(217, 177, 255)
+}
+p{
+  color: rgb(112, 0, 187);
+}
+input{
+   text-align: center;
+}
+button{
+background-color: #610139;
+border:2px solid #be508d;
+color:rgb(255, 255, 255);
 }
 </style>
